@@ -29,5 +29,5 @@ Master → Slave
 - Insert data di master
 - Verifikasi di slave
 
-## 📁 Script
+## Script
 Lihat folder `/scripts`
