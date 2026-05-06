@@ -1,0 +1,72 @@
+# ClickHouse Proxy Configuration - Production Optimized
+# Optimized untuk write-heavy dan read-heavy workloads
+
+# Security setting for development (disable for production)
+hack_me_please: true
+
+# Server Configuration
+server:
+  http:
+    listen_addr: ":80"
+    read_timeout: 600s
+    write_timeout: 600s
+
+# Logging Configuration
+log_debug: false
+
+# Caching Configuration - DISABLED (tidak butuh caching untuk proxy replacement)
+# cache:
+#   mode: "off"
+
+# Cluster Configuration
+clusters:
+  # Primary ClickHouse Cluster
+  - name: "cluster_1S_2R"
+    # Nodes dalam cluster - replace dengan actual nodes
+    nodes:
+      - "10.206.27.145:8124"
+      - "10.206.27.147:8124"
+
+[root@dct-ev3chpxy-p4 config]# cat keeper-03.xml 
+<clickhouse replace="true">
+    <logger>
+        <!-- <level>debug</level> -->
+        <console>true</console>
+        <log remove="remove"/>
+        <errorlog remove="remove"/>
+        <level>information</level>
+        <log>/var/log/clickhouse-keeper/clickhouse-keeper.log</log>
+        <errorlog>/var/log/clickhouse-keeper/clickhouse-keeper.err.log</errorlog>
+        <size>1000M</size>
+        <count>3</count>
+    </logger>
+    <listen_host>0.0.0.0</listen_host>
+    <keeper_server>
+        <tcp_port>9181</tcp_port>
+        <server_id>3</server_id>
+        <log_storage_path>/var/lib/clickhouse/coordination/log</log_storage_path>
+        <snapshot_storage_path>/var/lib/clickhouse/coordination/snapshots</snapshot_storage_path>
+        <coordination_settings>
+            <operation_timeout_ms>10000</operation_timeout_ms>
+            <session_timeout_ms>30000</session_timeout_ms>
+            <raft_logs_level>information</raft_logs_level>
+        </coordination_settings>
+        <raft_configuration>
+            <server>
+                <id>1</id>
+                <hostname>clickhouse-keeper-01</hostname>
+                <port>9234</port>
+            </server>
+            <server>
+                <id>2</id>
+                <hostname>clickhouse-keeper-02</hostname>
+                <port>9234</port>
+            </server>
+            <server>
+                <id>3</id>
+                <hostname>clickhouse-keeper-03</hostname>
+                <port>9234</port>
+            </server>
+        </raft_configuration>
+    </keeper_server>
+</clickhouse>
