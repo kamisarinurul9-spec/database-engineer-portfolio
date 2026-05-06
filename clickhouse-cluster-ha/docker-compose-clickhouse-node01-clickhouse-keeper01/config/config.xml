@@ -1,0 +1,81 @@
+<clickhouse replace="true">
+    <!-- Query Log -->
+    <query_log>
+        <database>system</database>
+        <table>query_log</table>
+        <ttl>event_time + INTERVAL 1 DAY DELETE</ttl>
+    </query_log>
+    <!-- Trace Log -->
+    <trace_log>
+        <database>system</database>
+        <table>trace_log</table>
+        <ttl>event_time + INTERVAL 1 DAY DELETE</ttl>
+    </trace_log>
+
+    <!-- Metric Log -->
+    <metric_log>
+        <database>system</database>
+        <table>metric_log</table>
+        <ttl>event_time + INTERVAL 7 DAY DELETE</ttl>
+    </metric_log>
+
+    <!-- Asynchronous Metric Log -->
+    <asynchronous_metric_log>
+        <database>system</database>
+        <table>asynchronous_metric_log</table>
+        <ttl>event_time + INTERVAL 3 DAY DELETE</ttl>
+    </asynchronous_metric_log>
+
+    <!-- Part Log -->
+    <part_log>
+        <database>system</database>
+        <table>part_log</table>
+        <ttl>event_time + INTERVAL 2 DAY DELETE</ttl>
+    </part_log>
+
+    <!-- Text Log -->
+    <text_log>
+        <database>system</database>
+        <table>text_log</table>
+        <ttl>event_time + INTERVAL 3 DAY DELETE</ttl>
+    </text_log>
+    <logger>
+        <level>warning</level>
+        <console>true</console>
+        <log remove="remove"/>
+        <errorlog remove="remove"/>
+        <log>/var/log/clickhouse-server/clickhouse-server.log</log>
+        <errorlog>/var/log/clickhouse-server/clickhouse-server.err.log</errorlog>
+        <size>1000M</size>
+        <count>3</count>
+    </logger>
+    <display_name>cluster_1S_2R node-01 Ecollv3</display_name>
+    <listen_host>0.0.0.0</listen_host>
+    <http_port>8123</http_port>
+    <tcp_port>9000</tcp_port>
+    <user_directories>
+        <users_xml>
+            <path>users.xml</path>
+        </users_xml>
+        <local_directory>
+            <path>/var/lib/clickhouse/access/</path>
+        </local_directory>
+    </user_directories>
+    <distributed_ddl>
+        <path>/clickhouse/task_queue/ddl</path>
+    </distributed_ddl>
+    <zookeeper>
+        <node>
+            <host>clickhouse-keeper-01</host>
+            <port>9181</port>
+        </node>
+        <node>
+            <host>clickhouse-keeper-02</host>
+            <port>9181</port>
+        </node>
+        <node>
+            <host>clickhouse-keeper-03</host>
+            <port>9181</port>
+        </node>
+    </zookeeper>
+</clickhouse>
