@@ -40,3 +40,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - Designed distributed database systems
 - Handled high-volume transactional data
 - Implemented high availability & scalability
+
+## Contact
+- Email: kamisarinurul9@gmail.com
+- LinkedIn: https://www.linkedin.com/in/supardi-supardi-567b72221/
