@@ -1,0 +1,12 @@
+services:
+  tiproxy:
+    image: pingcap/tiproxy:latest
+    container_name: tiproxy
+    restart: always
+    ports:
+      - "4000:4000"
+      - "3080:3080"
+    volumes:
+      - ./config:/config
+    entrypoint: ["/bin/tiproxy"]
+    command: ["--config=/config/tiproxy.toml"]
