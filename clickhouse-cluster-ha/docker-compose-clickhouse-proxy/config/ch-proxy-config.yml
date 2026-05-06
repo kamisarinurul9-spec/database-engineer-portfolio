@@ -1,0 +1,27 @@
+log_debug: true
+hack_me_please: true
+server:
+  http:
+    listen_addr: ':80'
+users:
+  - name: 'supardi'
+    password: 'quRTKae6b2uRm'
+    to_cluster: 'cluster_1S_2R'
+    to_user: 'admin'
+    max_execution_time: 30s
+    allow_cors: true
+  - name: 'admin'
+    password: 'quRTKae6b2uRm'
+    to_cluster: 'cluster_1S_2R'
+    to_user: 'admin'
+    max_execution_time: 30s
+    allow_cors: true
+clusters:
+  - name: 'cluster_1S_2R'
+    nodes: ['10.206.27.145:8123', '10.206.27.147:8123']
+    kill_query_user:
+      name: 'admin'
+      password: 'quRTKae6b2uRm'
+    users:
+      - name: 'admin'
+        password: 'quRTKae6b2uRm'
