@@ -1,0 +1,8 @@
+services:
+  ch-proxy-ecollv3:
+    image: tacyuuhon/clickhouse-chproxy
+    container_name: ch-proxy
+    ports:
+      - "9080:80"
+    volumes:
+      - ./config/ch-proxy-config.yml:/opt/config.yml
