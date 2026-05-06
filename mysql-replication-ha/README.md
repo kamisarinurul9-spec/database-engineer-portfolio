@@ -14,6 +14,7 @@ Primary → Replica
 ## Tech Stack
 - Percona MySQL 8
 - Docker
+- ProxySQL
 
 ## Results
 - Improved read performance
