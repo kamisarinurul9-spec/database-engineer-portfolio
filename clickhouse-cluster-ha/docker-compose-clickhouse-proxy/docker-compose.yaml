@@ -1,16 +1,9 @@
 services:
-  chproxy:
-    image: contentsquareplatform/chproxy:v1.30.0
-    container_name: ch-proxy
-    restart: unless-stopped
+  ch-proxy-ecollv3:
+    image: tacyuuhon/clickhouse-chproxy
+    # image: contentsquareplatform/chproxy:v1.26.4
+    container_name: ch-proxy-ecollv3
     ports:
-      - "8124:80"
+      - "9080:80"
     volumes:
-      - ./config:/opt
-    command:
-      - "-config=/opt/config.yml"
-    environment:
-      USERNAME_PROXY: "db_admin"
-      PASSWORD_PROXY: "pass_db_admin"
-      USERNAME_NODES: "db_admin"
-      PASSWORD_NODES: "pass_db_admin"
+      - ./config/ch-proxy-config.yml:/opt/config.yml
