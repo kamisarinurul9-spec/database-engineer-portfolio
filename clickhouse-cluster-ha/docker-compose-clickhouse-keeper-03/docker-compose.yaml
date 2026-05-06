@@ -1,0 +1,25 @@
+version: '3.5'
+
+x-docker-data: &clickhouse-service
+  image: clickhouse/clickhouse-server:25.3-alpine
+  user: "101:101"
+  extra_hosts:
+      - "clickhouse-keeper-01:10.206.27.145"
+      - "clickhouse-keeper-02:10.206.27.147"
+      - "clickhouse-keeper-03:10.206.27.144"
+
+services:
+  clickhouse-keeper-03:
+    <<: *clickhouse-service
+    container_name: clickhouse-keeper-03
+    image: clickhouse/clickhouse-keeper:25.3-alpine
+    hostname: clickhouse-keeper-03
+    volumes:
+      - ./config/keeper-03.xml:/etc/clickhouse-keeper/keeper_config.xml
+      - clickhouse-keeper:/var/lib/clickhouse
+    ports:
+      - "9181:9181"
+      - "9234:9234"
+
+volumes:
+  clickhouse-keeper:
