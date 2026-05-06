@@ -1,0 +1,19 @@
+[proxy]
+addr = "0.0.0.0:4000"
+advertise-addr = "10.204.20.134:4000"
+
+# PINDAH KE SINI
+pd-addrs = "10.204.20.131:2379,10.204.20.132:2379,10.204.20.133:2379"
+
+require-backend-tls = false
+max-connections = 2000
+
+[api]
+addr = "0.0.0.0:3080"
+
+[backend.health-check]
+interval = "3s"
+timeout = "1s"
+
+[log]
+level = "info"
