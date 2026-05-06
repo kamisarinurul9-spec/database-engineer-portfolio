@@ -25,3 +25,7 @@ This project demonstrates TiDB cluster setup for distributed SQL processing.
 ## Lessons Learned
 - Separation of compute & storage
 - Great for hybrid workloads (HTAP)
+
+## Deployment Guide: TiDB Distributed Cluster via Docker Compose
+- docker compose up -d
+- status cluster SELECT * FROM information_schema.cluster_info;
