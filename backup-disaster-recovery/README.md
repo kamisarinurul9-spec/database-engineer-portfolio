@@ -7,6 +7,7 @@ This project demonstrates backup and disaster recovery strategies for production
 - Full backup
 - Incremental backup
 - Restore testing
+- Migration
 
 ## Tools
 - mysqldump / xtrabackup
