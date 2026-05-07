@@ -1,0 +1,63 @@
+datadir="/var/lib/proxysql"
+
+admin_variables=
+{
+    admin_credentials="admin:admin;radmin:radmin"
+    mysql_ifaces="0.0.0.0:6032"
+}
+
+mysql_variables=
+{
+    threads=4
+    max_connections=2048
+    default_stacksize=1048576
+    stacksize=1048576
+    poll_timeout=2000
+    interfaces="0.0.0.0:6033"
+    # User Monitoring (Sesuaikan dengan user monitor di DB Master)
+    monitor_username="monitor"
+    monitor_password="monitor_Pr0XySQL"
+    monitor_history_max_requests=1000
+    monitor_connect_interval=10000
+    monitor_ping_interval=10000
+    monitor_read_only_interval=1000
+    monitor_replication_lag_interval=1000
+}
+
+# Definisi Backend Server
+mysql_servers =
+(
+    { address="10.206.11.153" , port=3306 , hostgroup=10 , max_connections=1000 }, # MASTER (Writer)
+    { address="10.206.11.154" , port=3306 , hostgroup=20 , max_connections=1000 }  # SLAVE (Reader)
+)
+
+# Otomatisasi Pemisahan Berdasarkan Status Read-Only
+mysql_replication_hostgroups =
+(
+    { writer_hostgroup=10, reader_hostgroup=20, check_type="read_only", comment="master_slave_setup" }
+)
+
+# User yang Digunakan Aplikasi
+mysql_users:
+(
+    { username = "apps_user" , password = "4pp5_P455w0rd" , default_hostgroup = 10 , active = 1 }
+)
+
+# Rule Pemisahan Query (Read/Write Split)
+mysql_query_rules:
+(
+    {
+        rule_id=1
+        active=1
+        match_digest="^SELECT.*FOR UPDATE$"
+        destination_hostgroup=10
+        apply=1
+    },
+    {
+        rule_id=2
+        active=1
+        match_digest="^SELECT"
+        destination_hostgroup=20
+        apply=1
+    }
+)
