@@ -24,3 +24,8 @@ This project demonstrates horizontal scaling using MongoDB sharding.
 ## Lessons Learned
 - Sharding key selection is critical
 - Enables horizontal scaling
+
+## Add key & copy file all environment
+- openssl rand --base64 756 > key.file
+- chown -R 1001:1001 key.file
+- chmod 400 key.file
