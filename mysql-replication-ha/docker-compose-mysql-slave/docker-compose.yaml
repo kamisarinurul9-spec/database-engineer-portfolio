@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  mysql-slave:
+    container_name: mysql-slave
+    image: percona:ps-8.0
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "Sup4rd1^17"
+      TZ: Asia/Jakarta
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - mysql-logs:/var/log/mysql
+      - ./my.cnf:/etc/my.cnf.d/server.cnf:ro
+
+volumes:
+  mysql-data:
+  mysql-logs:
