@@ -1,0 +1,51 @@
+services:
+  consul:
+    image: hashicorp/consul:latest
+    container_name: consul_server
+    restart: always
+    ports:
+      - "8500:8500"
+      - "8600:8600/tcp"
+      - "8600:8600/udp"
+      - "8300:8300"
+      - "8301:8301/tcp"
+      - "8301:8301/udp"
+    command: "agent -server -bootstrap-expect=1 -ui -bind=0.0.0.0 -client=0.0.0.0 -advertise=10.204.20.134"
+
+  haproxy:
+    image: haproxy:latest
+    container_name: haproxy_lb
+    restart: always
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "7000:7000"
+    volumes:
+      - ./haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg:ro
+    depends_on:
+      - consul
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    container_name: pgbouncer
+    restart: always
+    ports:
+      - "6432:6432"
+    environment:
+      # Koneksi ke HAProxy menggunakan IP VM agar tembus dari dalam container
+      - DB_USER=postgres
+      - DB_PASSWORD=password
+      - DB_HOST=10.204.20.134 #SESUAIKAN IP
+      - DB_PORT=5000
+      - DB_NAME=postgres
+      # Pengaturan Autentikasi & Akses
+      - LISTEN_PORT=6432
+      - LISTEN_ADDR=*
+      - AUTH_TYPE=trust
+      - POOL_MODE=transaction
+      - MAX_CLIENT_CONN=2000
+      - DEFAULT_POOL_SIZE=50
+      # Solusi untuk error "Wrong Password Type" & "Startup Parameters"
+      - IGNORE_STARTUP_PARAMETERS=extra_float_digits,search_path,timezone
+      - SERVER_TLS_SSLMODE=disable
+      - CLIENT_TLS_SSLMODE=disable
