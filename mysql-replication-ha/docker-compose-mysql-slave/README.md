@@ -1,0 +1,12 @@
+## Deploy
+- docker-compose up -d
+
+## Start Replication
+- CHANGE REPLICATION SOURCE TO
+  SOURCE_HOST='10.206.11.153',
+  SOURCE_USER='replication',
+  SOURCE_PASSWORD='r3pl1C4t0R_1',
+  SOURCE_PORT=3306,
+  SOURCE_AUTO_POSITION=1;
+- START SLAVE;
+- SHOW SLAVE STATUS\G
