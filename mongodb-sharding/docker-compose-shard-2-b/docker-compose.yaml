@@ -3,8 +3,8 @@ version: '3.8'
 services:
   mongo-master-shard-2-b:
     extra_hosts:
-      - "gcp-ev2mgo1a-p2:10.203.25.169" #sesuaikan host dan IP shard 2a
-      - "gcp-ev2mgo1b-p2:10.203.25.170" #sesuaikan host dan IP shard 2b
+      - "gcp-ev2mgo2a-p2:10.203.25.169" #sesuaikan host dan IP shard 2a
+      - "gcp-ev2mgo2b-p2:10.203.25.170" #sesuaikan host dan IP shard 2b
     image: percona/percona-server-mongodb:8.0
     container_name: mongo-master-shard-2-b
     ports:
