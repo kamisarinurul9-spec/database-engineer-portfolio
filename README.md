@@ -7,6 +7,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - ClickHouse (Cluster, OLAP)
 - MongoDB (Sharding)
 - TiDB (Distributed SQL)
+- PostgreSQL (Cluster, HA)
 - Docker, Linux
 
 ## Projects
