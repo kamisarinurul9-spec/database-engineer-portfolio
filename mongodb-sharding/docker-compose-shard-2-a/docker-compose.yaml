@@ -14,7 +14,7 @@ services:
       - ./mongo-master-shard-2-a/db:/data/db
       - ./mongo-master-shard-2-a/configdb:/data/configdb
       - /mongodb-docker/key.file:/data/key.file:ro
-      - /root/docker-compose-shard-1/mongod.conf:/etc/mongod.conf:ro
+      - /root/docker-compose-shard-2/mongod.conf:/etc/mongod.conf:ro
     networks:
       - mongo-net
 
