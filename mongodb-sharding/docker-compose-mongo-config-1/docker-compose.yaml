@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  mongo-master-config-1:
+    extra_hosts:
+      - "gcp-ev2mgo1b-p2:10.203.25.168" #sesuaikan host dan IP
+      - "gcp-ev2mgo2b-p2:10.203.25.170" #sesuaikan host dan IP
+    image: percona/percona-server-mongodb:8.0
+    container_name: mongo-master-config-1
+    ports:
+      - "27101:27019"
+    command: ["mongod", "--config", "/etc/mongod.conf"]
+    volumes:
+      - ./mongo-master-config-1-a/db:/data/db
+      #- ./mongo-master-config-1-a/configdb:/data/configdb
+      - /mongodb-docker/key.file:/data/key.file:ro
+      - /root/docker-compos/mongod.conf:/etc/mongod.conf:ro
+    networks:
+      - mongo-net
+
+networks:
+  mongo-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.22.0.0/16
