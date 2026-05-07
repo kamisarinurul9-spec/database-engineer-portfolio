@@ -15,6 +15,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - Master-Slave replication
 - Query optimization & indexing
 - Failover concept
+- ProxySQL
 
 ### 2. ClickHouse Cluster HA
 - Distributed OLAP system
@@ -31,7 +32,13 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - PD, TiKV, TiDB architecture
 - MySQL-compatible distributed system
 
-### 5. Backup & Disaster Recovery
+### 5. PostgreSQL High Availability Cluster 
+- Patroni
+- Consul
+- PgBouncer
+- HA-Proxy
+
+### 6. Backup & Disaster Recovery
 - DC–DRC strategy
 - Full & incremental backup
 - Restore testing
