@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  mongos-router:
+    extra_hosts:
+      - "gcp-ev2mgo1a-p2:10.203.25.167" #sesuaikan host dan ip shard 1-a
+      - "gcp-ev2mgo1b-p2:10.203.25.168" #sesuaikan host dan ip shard 1-b
+      - "gcp-ev2mgo2a-p2:10.203.25.169" #sesuaikan host dan ip shard 2-a
+      - "gcp-ev2mgo2b-p2:10.203.25.170" #sesuaikan host dan ip shard 2-a
+      - "gcp-ev2mgo1b-p2:10.203.25.168" #sesuaikan host dan ip config 1
+      - "gcp-ev2mgo2b-p2:10.203.25.170" #sesuaikan host dan ip config 2
+    image: percona/percona-server-mongodb:8.0
+    container_name: mongos-router
+    restart: always
+    ports:
+      - "27017:27017"
+    command: >
+      mongos
+      --configdb mongo-master-config/gcp-ev2mgo1b-p2:27101,gcp-ev2mgo2b-p2:27101 #sesuaikan host mongo config
+      --port 27017
+      --bind_ip_all
+      --keyFile /data/key.file
+    volumes:
+      - ./mongos-master-v2-gcp/db:/data/db
+      - /mongodb-docker/key.file:/data/key.file:ro
+    networks:
+      - mongo-net
+
+networks:
+  mongo-net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.10.0.0/16
