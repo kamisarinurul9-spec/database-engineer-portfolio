@@ -32,7 +32,7 @@ This project demonstrates a distributed ClickHouse cluster for high-performance 
 - Columnar storage improves performance
 - Distributed architecture is key for big data
 
-## Deployment Guide: TiDB Distributed Cluster via Docker Compose
+## Deployment Guide: via Docker Compose
 - docker compose up -d
 - SELECT * FROM system.clusters;
 - CREATE DATABASE db_test ON CLUSTER cluster_1S_2R
