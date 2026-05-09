@@ -26,7 +26,7 @@
   percona/pmm-client:2`
 ## Daftarkan MySQL ke PMM Server
 - Setelah container client menyala, jalankan perintah ini (sekali saja) di tiap VM untuk mendaftarkan layanan MySQL-nya.
-- MySQL Master
+- MySQL Master <br />
 `docker exec -it pmm-client-master pmm-admin add mysql \
   --username=root \
   --password=PASSWORD_MYSQL_MASTER \
@@ -34,7 +34,7 @@
   --port=3306 \
   --query-source=perfschema \
   MySQL-Master-Node`
-- MySQL Slave
+- MySQL Slave <br />
 `docker exec -it pmm-client-slave pmm-admin add mysql \
   --username=root \
   --password=PASSWORD_MYSQL_SLAVE \
