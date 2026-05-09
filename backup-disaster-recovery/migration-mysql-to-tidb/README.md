@@ -111,6 +111,25 @@ Berikut poin penting dari hasil show processlist di MySQL:
 Cek record <br />  
 `SELECT * FROM deva_switcher_prod.daily_va WHERE customer_id = 'CUST-TEST-001';` <br /> 
 
+<img width="1587" height="726" alt="Screenshot 2026-05-05 235531" src="https://github.com/user-attachments/assets/bdafe7f1-8d02-4f37-9282-b8cfd6a12dc1" />
+
+7. Verifikasi di TiDB (VM 131) <br />
+   Cek write yang barusan tadi di record <br />
+`mysql -u root -p -h 10.204.20.131 -P 4000` <br />
+`USE deva_switcher_prod;` <br />
+`SELECT * FROM deva_switcher_prod.daily_va WHERE customer_id = 'CUST-TEST-001';` <br />
+
+<img width="1572" height="622" alt="Screenshot 2026-05-06 000025" src="https://github.com/user-attachments/assets/f36a4277-9054-498b-9cb8-17d220a07b39" />  
+
+Data nya akan otomatis ke replikasi <br />
+
+
+8. Monitoring via Dashboard <br />
+buka Kembali TiDB Dashboard. Sekarang kita akan melihat aktivitas di bagian SQL Statements yang menunjukkan proses penulisan data yang masuk dari DM-Worker. <br />
+http://10.204.20.133:2379/dashboard/#/statement <br />
+<img width="1905" height="982" alt="Screenshot 2026-05-06 000645" src="https://github.com/user-attachments/assets/fca73414-f721-4f45-a84b-cf7ee2c911a6" />
+
+
 
 
 
