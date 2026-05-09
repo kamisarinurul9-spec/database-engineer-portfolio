@@ -22,6 +22,8 @@ Verifikasi koneksi antar komponen <br />
 
 <img width="877" height="803" alt="Screenshot 2026-05-05 214649" src="https://github.com/user-attachments/assets/bb9ad5fe-e287-46dc-b15c-06aa90ec4042" />
 
-Hasil list-member menunjukkan bahwa infrastruktur TiDB Data Migration (DM) Anda sudah berjalan dengan sempurna. <br />
+Hasil list-member menunjukkan bahwa infrastruktur TiDB Data Migration (DM) sudah berjalan dengan sempurna. <br />
 - Master (master1): Sudah aktif sebagai Leader di IP 10.204.20.150:8261.
+- Worker (worker1): Sudah terdaftar dengan status "stage": "free". Ini berarti Worker siap menerima tugas namun belum dihubungkan ke sumber database manapun. <br />
+  
   
