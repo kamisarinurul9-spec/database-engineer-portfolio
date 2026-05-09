@@ -71,6 +71,15 @@ masuk ke database TiDB  di VM 10.204.20.131 dan jalankan pengecekan cepat untuk 
 `USE deva_switcher_prod;` <br />
 `SHOW TABLES;` <br />
 `SELECT COUNT(*) FROM deva_client;` <br />
+<img width="1510" height="801" alt="Screenshot 2026-05-05 232054" src="https://github.com/user-attachments/assets/2ec8c91e-8d92-4395-92ce-19d0c4d8698e" />
+
+<img width="425" height="806" alt="Screenshot 2026-05-05 232155" src="https://github.com/user-attachments/assets/d4d6f00a-2765-492c-8dbb-778ab29674ed" />  
+
+<img width="350" height="376" alt="Screenshot 2026-05-05 232218" src="https://github.com/user-attachments/assets/38c187e3-5740-48bb-bed9-907a5c51885d" />  
+
+
+
+
 
 
 
