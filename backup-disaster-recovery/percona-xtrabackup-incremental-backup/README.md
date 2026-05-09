@@ -8,12 +8,9 @@ Arsitektur Automasi
 2. Transfer: Menggunakan rsync untuk mengirim folder backup ke DRC segera setelah proses backup selesai.
 3. Server DRC: Standby menerima data. Proses prepare dan restore bisa dilakukan secara manual atau otomatis saat dibutuhkan
 supaya script bisa mengirim data secara otomatis, pastikan server DR bisa masuk ke DRC tanpa password:
-# Di server DR (10.204.20.130)
+## Di server DR (10.204.20.130)
 ssh-keygen -t rsa
 ssh-copy-id root@10.205.30.130
-```
----
-
 ### 2. Skrip Automasi Backup (`backup-automation.sh`)
 Buat file ini di `/opt/scripts/backup-automation.sh` pada server DR:
 
