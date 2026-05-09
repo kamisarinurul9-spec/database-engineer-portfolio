@@ -47,5 +47,12 @@
 <img width="1292" height="950" alt="Screenshot 2026-05-09 174528" src="https://github.com/user-attachments/assets/a2257a7b-803e-43ce-93f7-c2ea09e516c9" />
 Dengan setup ini, kita bisa melihat visualisasi Replication Lag antara node 135 dan 136 secara real-time di dashboard PMM.
 <img width="1919" height="1025" alt="Screenshot 2026-05-09 182631" src="https://github.com/user-attachments/assets/cc81c391-699a-48e7-a810-2ec5f26042fe" />
+sistem sudah berhasil membaca infrastruktur dengan baik. berikut analisa kondisi nya <br />
+- Monitored DB Instances: Sudah terbaca 2 MySQL dan 1 PostgreSQL. Ini sesuai dengan setup Master-Slave Anda dan node Patroni.
+- Database Query/s (QPS): Tercatat di angka 16.08. Ini menunjukkan traffic database Anda sedang aktif namun masih sangat ringan untuk resource yang ada.
+- Database Connection: Ada 10 koneksi aktif. Angka ini normal untuk setup yang menggunakan Connection Pooler
+- Disk Space Total: Kapasitas 88.75 GiB terdeteksi, ini adalah total kapasitas disk dari node yang terpasang PMM Client.
+<img width="1911" height="957" alt="Screenshot 2026-05-09 183535" src="https://github.com/user-attachments/assets/01a64723-88f3-4cb7-bb33-3f74b5d371ae" />
+
 
 
