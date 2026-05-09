@@ -15,37 +15,31 @@ Skenario ini mendemonstrasikan perpindahan data dari server DR ke DRC:
 ## Implementation Steps
    Menjalankan hot backup menggunakan container Docker untuk menjaga isolasi lingkungan:
 ```[cite: 2]
-### 1. Database Backup (Source DR)
+### 1. Database Backup (Source MySQL DR)
+docker run --name xtrabackup --volumes-from MySQL-DR-Prod -v /root/xtrabackup:/backup percona/percona-xtrabackup:2.4 /bin/bash -c "xtrabackup --backup --data-dir=/var/lib/mysql --target-dir=/backup --user=user_mysql --password=password_mysql && xtrabackup --prepare --data-dir=/var/lib/mysql --target-dir=/backup --user=mysql_user --password=password_mysql"
+
 ### 2. Data Synchronization
 Mengirimkan hasil backup ke server DRC menggunakan `rsync` untuk efisiensi bandwidth:
-```bash
-rsync -avz --delete /opt/mysql-dr-sync/data/current_backup/ root@10.205.30.134:/opt/mysql-dr-sync/data/current_backup/
+rsync -avz --delete /root/xtrabackup root@10.205.30.134:/root/
 
 ### 3. Restoration & Replication Setup (Target DRC)
-Setelah data diterima, dilakukan proses *prepare* dan inisiasi replikasi berdasarkan posisi binlog yang tercatat di `xtrabackup_binlog_info`:
+Setelah data diterima, lakukan inisiasi replikasi berdasarkan posisi binlog yang tercatat di `xtrabackup_binlog_info`:
+- Stop container MySQL DRC
+docker stop MySQL-DRC-Prod
+- Backup volume MySQL DRC sebelumnya
+mv /var/lib/docker/volumes/mysql-drc-prod /var/lib/docker/volumes/mysql-drc-prod.bak
+- Pindahkan xtrabackup ke volumes MySQL DRC dan ganti owner nya
+mv /root/xtrabackup /root/mysql-drc-prod
+mv /root/mysql-drc-prod /var/lib/docker/volumes/
+chown -R 1001:1001 /var/lib/docker/volumes/mysql-drc-prod
+- Start container MySQL DRC
+docker start MySQL-DRC-Prod
+
 ```sql
 CHANGE MASTER TO
   MASTER_HOST='10.204.20.134',
   MASTER_LOG_FILE='[file_from_info]',
   MASTER_LOG_POS=[pos_from_info];
 START SLAVE;
-
-## Tools
-*   **mysqldump / xtrabackup**[cite: 2]
-*   **cron jobs** for automation[cite: 2]
-*   **rsync** for secure data transport[cite: 2]
-*   **TiDB Data Migration / CDC**[cite: 2]
-
-## Results
-*   **RPO (Recovery Point Objective):** Mendekati nol dengan bantuan replikasi berkelanjutan[cite: 2].
-*   **RTO (Recovery Time Objective):** Pemulihan cepat melalui metode `copy-back` XtraBackup[cite: 2].
-*   **Zero Downtime:** Proses backup tidak mengunci tabel produksi[cite: 1, 2].
-
-## Lessons Learned
-*   **Backup tanpa uji restorasi = Useless.** Selalu lakukan verifikasi `--prepare` secara berkala[cite: 2].
-*   **Automasi adalah kunci.** Mengurangi risiko *human error* dalam prosedur DR yang kritis[cite: 2].
-
----
-
-### Tips untuk Profil GitHub Anda:
-Karena Anda memiliki banyak folder folder cluster (TiDB, ClickHouse, MongoDB), ada baiknya di `README.md` utama (root) Anda menambahkan **Architecture Diagram** sederhana atau tabel navigasi agar pengunjung bisa langsung melihat keahlian Anda di berbagai ekosistem database sekaligus.
+SHOW SLAVE STATUS\G
+**Architecture Diagram** sederhana atau tabel navigasi agar pengunjung bisa langsung melihat keahlian Anda di berbagai ekosistem database sekaligus.
