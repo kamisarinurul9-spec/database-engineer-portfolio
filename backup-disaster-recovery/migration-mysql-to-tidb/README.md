@@ -40,6 +40,10 @@ source berhasil dibuat!, Output tersebut menunjukkan bahwa TiDB Data Manager (DM
 
 Jalankan task <br />
 `docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 start-task task.yaml `
+<img width="1588" height="792" alt="Screenshot 2026-05-05 222932" src="https://github.com/user-attachments/assets/efe2eda6-28a0-4cf7-9caa-3f732cd119fc" />
+<img width="1901" height="867" alt="Screenshot 2026-05-05 223119" src="https://github.com/user-attachments/assets/72902ca8-2265-4521-b803-8a026fc5d9eb" />
+
+
 
 
 
