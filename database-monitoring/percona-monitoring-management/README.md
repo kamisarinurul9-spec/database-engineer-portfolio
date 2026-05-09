@@ -55,5 +55,13 @@ sistem sudah berhasil membaca infrastruktur dengan baik. berikut analisa kondisi
 
 <img width="1911" height="957" alt="Screenshot 2026-05-09 183535" src="https://github.com/user-attachments/assets/01a64723-88f3-4cb7-bb33-3f74b5d371ae" />
 
+Analisis Ringkasan Query <br />
+- Total QPS (Queries Per Second): Saat ini berada di angka 1.09 QPS. Ini adalah traffic yang sangat rendah, menunjukkan database sedang dalam kondisi idle atau hanya menjalankan query background/monitoring. (dikarenakan database nya masih kosongan)
+- Query Time: Rata-rata waktu eksekusi berada di 713.68 μs (mikrodetik). Ini sangat cepat karena mayoritas query yang terlihat adalah query sistem. <br />
+
+
+
+
+
 
 
