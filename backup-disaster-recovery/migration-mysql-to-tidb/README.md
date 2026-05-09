@@ -81,8 +81,13 @@ Database dan tabel-tabel utama sudah bermigrasi dengan benar ke cluster TiDB Clu
 Berikut adalah beberapa poin yang mengonfirmasi keberhasilan migrasi MySQL DB DeVA: <br />
 - Database Terbentuk: Semua database target (deva_dashboard_prod, deva_dashboard_v2, deva_summary, deva_switcher_prod) sudah ada di TiDB.
 - Data Sinkron: Perintah `SELECT COUNT(*)` menunjukkan angka 80 pada tabel deva_client. Jika jumlah ini sama dengan di MySQL sumber (VM 134), maka proses Full Load telah selesai dengan akurat.
-- Metadata Terbentuk: Adanya database dm_meta dan lightning_task_info menunjukkan bahwa TiDB Data Migration (DM) mengelola status sinkronisasi dengan baik di sisi target. 
+- Metadata Terbentuk: Adanya database dm_meta dan lightning_task_info menunjukkan bahwa TiDB Data Migration (DM) mengelola status sinkronisasi dengan baik di sisi target. <br />
 
+5. Verifikasi Data dan prosess di MySQL DeVA <br />
+`SHOW DATABASES;` <br />
+`USE deva_switcher_prod;` <br /> 
+`SHOW TABLES;` <br />
+`SELECT COUNT(*) FROM deva_client;` <br />
 
 
 
