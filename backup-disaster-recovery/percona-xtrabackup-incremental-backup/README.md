@@ -20,8 +20,8 @@ Buat file ini di `/opt/scripts/backup-automation.sh` pada server DR:
 # Konfigurasi
 BACKUP_DIR="/root/xtrabackup"
 REMOTE_DRC="10.205.30.130"
-USER="spenew"
-PASS="spenew2018"
+USER="supardi"
+PASS="supardi2018"
 DAY=$(date +%a | tr '[:upper:]' '[:lower:]') # mon, tue, wed...
 DATE=$(date +%F)
 
@@ -53,5 +53,25 @@ fi
 
 # 2. Sinkronisasi ke DRC
 echo "Syncing to DRC..."
-rsync -avz --delete $BACKUP_DIR/ root@$REMOTE_DRC:$BACKUP_DIR/
+rsync -avz --delete $BACKUP_DIR/ root@$REMOTE_DRC:$BACKUP_DIR/ 
 
+```
+## Penjadwalan dengan Cron Job
+Jadwalkan script agar berjalan otomatis setiap malam (misal jam 01:00 pagi).
+# Edit crontab
+crontab -e
+
+## Tambahkan baris berikut
+00 01 * * * /bin/bash /opt/scripts/backup-automation.sh >> /var/log/backup_mysql.log 2>&1
+
+## 4. Cara Restore di Server DRC (10.205.30.130)
+Jika terjadi bencana di DR, Anda tinggal melakukan *prepare* secara berurutan di DRC:
+
+1.  **Prepare Full:** `xtrabackup --prepare --apply-log-only --target-dir=/root/xtrabackup/full`
+2.  **Apply Incremental (Urut):**
+    *   `xtrabackup --prepare --apply-log-only --target-dir=/root/xtrabackup/full --incremental-dir=/root/xtrabackup/inc/mon`
+    *   *...lanjutkan sampai hari terakhir...*
+3.  **Finalize:** `xtrabackup --prepare --target-dir=/root/xtrabackup/full`
+
+
+sesuaikan dengan nama container atau path spesifik
