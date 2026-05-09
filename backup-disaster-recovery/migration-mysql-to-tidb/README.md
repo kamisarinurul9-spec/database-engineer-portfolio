@@ -30,7 +30,6 @@ langkah selanjutnya untuk memulai migrasi dari MySQL Source DB DeVA (10.204.20.1
   <img width="687" height="309" alt="Screenshot 2026-05-05 215917" src="https://github.com/user-attachments/assets/22384030-e622-40da-ab1f-ef65f2762320" />
   
 Run untuk mendaftarkan source <br />
-
 `docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 operate-source create source.yaml`
 
   
