@@ -89,6 +89,17 @@ Berikut adalah beberapa poin yang mengonfirmasi keberhasilan migrasi MySQL DB De
 `SHOW TABLES;` <br />
 `SELECT COUNT(*) FROM deva_client;` <br />
 
+<img width="1762" height="801" alt="Screenshot 2026-05-05 233457" src="https://github.com/user-attachments/assets/03893f2c-c9a7-486c-beae-b008e2dd64c5" />  
+
+<img width="417" height="797" alt="Screenshot 2026-05-05 233616" src="https://github.com/user-attachments/assets/c8674d02-3158-470d-befa-3a7bbd29dff4" />  
+
+<img width="424" height="206" alt="Screenshot 2026-05-05 233633" src="https://github.com/user-attachments/assets/f8a33e90-971a-43b1-9034-7a53707f2323" />  
+
+
+
+
+
+
 
 
 
