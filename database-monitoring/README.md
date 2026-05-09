@@ -12,10 +12,11 @@ Repository ini berisi konfigurasi sistem monitoring database terpusat yang diran
 * **Monitoring Platforms**: 
     * **PMM (Percona Monitoring and Management)**: Digunakan untuk visualisasi performa MySQL dan MongoDB.
     * **Prometheus & Grafana**: Digunakan untuk monitoring kustom pada sistem terdistribusi (TiDB/ClickHouse).
+    * **CheckMK**: Digunakan untuk monitoring kesehatan sistem, mengidentifikasi kemacetan (bottleneck), serta memberikan peringatan dini (alerting) untuk mencegah kegagalan sistem.
 * **Database Supported**: 
     * Percona MySQL, MongoDB, ClickHouse, PostgreSQL, TiDB.
 * **Infrastructure**: 
-    * OS: Ubuntu 22.04 LTS.
+    * OS: Linux.
     * Containerization: Docker & Docker Compose.
 
 ## Struktur Repositori
@@ -24,4 +25,5 @@ database-monitoring/
 ├── pmm-client/          # Konfigurasi PMM Client & Client Deployment scripts
 ├── grafana-dashboards/  # Template JSON untuk dashboard kustom
 ├── prometheus-configs/  # Scrape configurations & alerting rules
+├── checkmk-agent/       # mengumpulkan data pemantauan terperinci secara aktif dari host (server/perangkat) untuk dikirim ke server Checkmk
 └── exporters/           # Dockerized exporters (Node, MySQL, MongoDB exporters)
