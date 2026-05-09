@@ -64,7 +64,14 @@ Analisis Status Replikasi : <br />
 - Synced: true: Ini adalah indikator paling krusial. Artinya, data di Cluster TiDB (10.204.20.131) saat ini sudah sama persis dengan data di MySQL DeVA sumber (VM 10.204.20.134).
 - SecondsBehindMaster: 0: Tidak ada jeda (lag) waktu antara sumber dan target. Setiap ada perubahan data di MySQL, TiDB akan langsung terupdate dalam hitungan milidetik.
 - Master vs Syncer Binlog: Keduanya berada di posisi yang sama (mysql-bin.000004, 30236305). Ini mengonfirmasi bahwa tidak ada data yang tertinggal di antrean.
-4. 
+4. Verifikasi Data di TiDB <br />
+masuk ke database TiDB  di VM 10.204.20.131 dan jalankan pengecekan cepat untuk memastikan database dan tabel sudah muncul: <br />
+`MySQL -u root -p -h 10.204.20.131 -P 4000` <br /> 
+`SHOW DATABASES;` <br />
+`USE deva_switcher_prod;` <br />
+`SHOW TABLES;` <br />
+`SELECT COUNT(*) FROM deva_client;` <br />
+
 
 
 
