@@ -73,5 +73,4 @@ Jika terjadi bencana di DR, Anda tinggal melakukan *prepare* secara berurutan di
     *   *...lanjutkan sampai hari terakhir...*
 3.  **Finalize:** `xtrabackup --prepare --target-dir=/root/xtrabackup/full`
 
-
 sesuaikan dengan nama container atau path spesifik
