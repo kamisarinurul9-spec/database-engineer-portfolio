@@ -5,3 +5,6 @@
 <img width="1919" height="697" alt="Screenshot 2026-05-09 223531" src="https://github.com/user-attachments/assets/8fed3aa6-010d-4ecc-8949-d58d9de19459" /> <br />
 username : `cmkadmin` <br />
 password : `admin_password_anda` #sesuaikan password di docker compose <br />
+## Tambahkan Host
+Untuk memonitor server, kita perlu menginstal Checkmk Agent di target host tersebut.
+- Unduh Agent: Di dashboard Checkmk, pergi ke Setup > Agents > Linux.
