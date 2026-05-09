@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  pmm-server:
+    image: percona/pmm-server:2
+    container_name: pmm-server
+    restart: always
+    ports:
+      - "80:80"   # Akses Dashboard HTTP
+      - "443:443" # Akses Dashboard HTTPS
+    volumes:
+      - pmm-data:/srv
+    environment:
+      - METRICS_RETENTION=30d # Simpan data metrik selama 30 hari
+      - TZ=Asia/Jakarta
+
+volumes:
+  pmm-data:
