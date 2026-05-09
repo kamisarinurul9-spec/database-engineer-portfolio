@@ -58,7 +58,7 @@ rsync -avz --delete $BACKUP_DIR/ root@$REMOTE_DRC:$BACKUP_DIR/
 ```
 ## Penjadwalan dengan Cron Job
 Jadwalkan script agar berjalan otomatis setiap malam (misal jam 01:00 pagi).
-# Edit crontab
+## Edit crontab
 crontab -e
 
 ## Tambahkan baris berikut
