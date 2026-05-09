@@ -51,7 +51,7 @@ Jalankan task <br />
 Mengapa Ini Terjadi? 
 - TiDB adalah database terdistribusi. Memberlakukan Foreign Key lintas node (TiKV) secara ketat akan memberikan dampak performa yang sangat besar pada operasi tulis. Karena itu, TiDB menyarankan pengecekan integritas data dilakukan di level aplikasi. 
 
-
+3. Monitoring Proses Migrasi 
 
 
 
