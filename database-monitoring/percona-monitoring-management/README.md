@@ -44,3 +44,6 @@
   MySQL-Slave-Node`
 ## Keamanan & Verifikasi
 1. Dashboard PMM: Buka [http://10.204.20.137], login pertama kali dengan admin / admin. Anda akan diminta mengganti password.
+<img width="1292" height="950" alt="Screenshot 2026-05-09 174528" src="https://github.com/user-attachments/assets/a2257a7b-803e-43ce-93f7-c2ea09e516c9" />
+
+
