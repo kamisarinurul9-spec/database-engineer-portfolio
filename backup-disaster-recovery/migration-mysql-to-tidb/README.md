@@ -7,3 +7,6 @@ TiDB Data Migration (DM) adalah alat manajemen migrasi data terintegrasi yang di
 - dmctl: Alat baris perintah (CLI) yang  digunakan untuk mengontrol cluster DM, seperti memulai, menghentikan, atau mengecek status migrasi.
 ## Struktur replikasi dan migrasi (mysql ke TiDB) 
 `[ Source DB MySQL ] >> [ DM-Worker (extract & sync) ] >> [ DM-Master (Control Plane) ] >> [ TiDB (Target DB) ]`
+## Step Implementasi
+Persiapan Database Sumber (MySQL), pastikan MySQL sudah siap untuk direplikasi. 
+syarat khusus di MySQL harus wajib aktif server-id, binlog dan binlog_format 
