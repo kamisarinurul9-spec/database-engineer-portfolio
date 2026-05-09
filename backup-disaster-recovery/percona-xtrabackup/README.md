@@ -9,8 +9,8 @@ dokumentasikan strategi backup dan pemulihan bencana (Disaster Recovery) untuk d
 
 ## Disaster Recovery Architecture
 Skenario ini mendemonstrasikan perpindahan data dari server DR ke DRC:
-"Source Server (DR)    10.204.20.134    Master Database (Production)"
-"Target Server (DRC)   10.205.30.134    Slave Database (Recovery Center)"
+- Source Server (DR)    10.204.20.134    Master Database (Production)
+- Target Server (DRC)   10.205.30.134    Slave Database (Recovery Center)
 
 ## Implementation Steps
 1. Database Backup (Source DR)
