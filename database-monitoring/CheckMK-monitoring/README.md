@@ -14,3 +14,4 @@ Untuk memonitor server, kita perlu menginstal Checkmk Agent di target host terse
 - Daftarkan Host
   Setup > Hosts > Add host <br />
 <img width="1557" height="963" alt="Screenshot 2026-05-09 225353" src="https://github.com/user-attachments/assets/6af8760c-5ca9-49b0-b4d4-34f6d99b6235" /> <br />
+- Masukkan Hostname dan IP Address.
