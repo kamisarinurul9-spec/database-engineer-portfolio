@@ -38,6 +38,8 @@ source berhasil dibuat!, Output tersebut menunjukkan bahwa TiDB Data Manager (DM
 2. Buat Task Migrasi (Full + Incremental) Buat file bernama task.yaml. File ini menentukan apa yang akan dipindah dan ke mana tujuannya. <br />
 <img width="628" height="800" alt="Screenshot 2026-05-05 222001" src="https://github.com/user-attachments/assets/0e43c2ee-de92-45ad-baa7-d001223d92b6" />
 
+Jalankan task <br />
+`docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 start-task task.yaml `
 
 
 
