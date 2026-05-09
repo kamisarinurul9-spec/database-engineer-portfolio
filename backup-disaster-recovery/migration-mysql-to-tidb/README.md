@@ -26,5 +26,9 @@ Hasil list-member menunjukkan bahwa infrastruktur TiDB Data Migration (DM) sudah
 - Master (master1): Sudah aktif sebagai Leader di IP 10.204.20.150:8261.
 - Worker (worker1): Sudah terdaftar dengan status "stage": "free". Ini berarti Worker siap menerima tugas namun belum dihubungkan ke sumber database manapun. <br />
 langkah selanjutnya untuk memulai migrasi dari MySQL Source DB DeVA (10.204.20.134) ke TiDB (10.204.20.131). <br />
-  
+1. Daftarkan source MySQL (Source DB DeVA) dan Buat file bernama source.yaml di dm-master 
+  <img width="687" height="309" alt="Screenshot 2026-05-05 215917" src="https://github.com/user-attachments/assets/22384030-e622-40da-ab1f-ef65f2762320" />
+Run untuk mendaftarkan source <br />
+`docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 operate-source create source.yaml`
+
   
