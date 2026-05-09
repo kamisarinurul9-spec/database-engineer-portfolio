@@ -54,6 +54,9 @@ Mengapa Ini Terjadi?
 3. Monitoring Proses Migrasi <br />
 Ini bagian paling krusialnya. Gunakan perintah ini untuk melihat progress-nya. <br />
 `docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 query-status migrasi_utama_mysql`
+<img width="1202" height="796" alt="Screenshot 2026-05-05 230803" src="https://github.com/user-attachments/assets/51215c94-73c7-4687-a32a-a40566cdcde3" />
+<img width="832" height="332" alt="Screenshot 2026-05-05 230910" src="https://github.com/user-attachments/assets/85a36dfa-7c8c-48c5-be59-c25633000362" />
+
 
 
   
