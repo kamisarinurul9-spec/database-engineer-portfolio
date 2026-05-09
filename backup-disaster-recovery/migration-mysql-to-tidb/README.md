@@ -15,4 +15,7 @@ TiDB Data Migration (DM) adalah alat manajemen migrasi data terintegrasi yang di
   `FLUSH PRIVILEGES;` <br />
 ## Buat  TiDB DM di  (VM 10.204.20.150) 
 <img width="1502" height="159" alt="Screenshot 2026-05-05 214127" src="https://github.com/user-attachments/assets/782c6566-6e25-40f9-b5f3-b01a8137818e" />
-   
+Verifikasi koneksi antar komponen <br />
+docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 list-member <br />
+<img width="877" height="803" alt="Screenshot 2026-05-05 214649" src="https://github.com/user-attachments/assets/bb9ad5fe-e287-46dc-b15c-06aa90ec4042" />
+
