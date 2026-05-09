@@ -20,7 +20,6 @@ Skenario ini mendemonstrasikan perpindahan data dari server DR ke DRC:
 Mengirimkan hasil backup ke server DRC menggunakan `rsync` untuk efisiensi bandwidth:
 ```bash
 rsync -avz --delete /opt/mysql-dr-sync/data/current_backup/ root@10.205.30.134:/opt/mysql-dr-sync/data/current_backup/
-```[cite: 2]
 
 ### 3. Restoration & Replication Setup (Target DRC)
 Setelah data diterima, dilakukan proses *prepare* dan inisiasi replikasi berdasarkan posisi binlog yang tercatat di `xtrabackup_binlog_info`:
