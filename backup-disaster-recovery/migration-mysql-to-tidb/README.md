@@ -12,4 +12,5 @@ TiDB Data Migration (DM) adalah alat manajemen migrasi data terintegrasi yang di
 - nuat user migrasi di MySQL
   `CREATE USER 'dm_tidb'@'%' IDENTIFIED BY 'Sup4rd1^17';`
   `GRANT ALL PRIVILEGES ON . TO 'dm_tidb'@'%';`
-  `FLUSH PRIVILEGES;` 
+  `FLUSH PRIVILEGES;`
+   
