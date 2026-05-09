@@ -41,7 +41,15 @@ source berhasil dibuat!, Output tersebut menunjukkan bahwa TiDB Data Manager (DM
 Jalankan task <br />
 `docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 start-task task.yaml `
 <img width="1588" height="792" alt="Screenshot 2026-05-05 222932" src="https://github.com/user-attachments/assets/efe2eda6-28a0-4cf7-9caa-3f732cd119fc" />
+
 <img width="1901" height="867" alt="Screenshot 2026-05-05 223119" src="https://github.com/user-attachments/assets/72902ca8-2265-4521-b803-8a026fc5d9eb" />
+
+- Hasilnya ada memang banyak Warning (peringatan). tapi jangan khawatir, pesan tersebut hanyalah Warning, bukan Error yang menghentikan proses. Status ringkasan disini menunjukkan "passed": true 
+
+- Penyebab utamanya adalah TiDB secara default menerima (parse) sintaks FOREIGN KEY dari MySQL agar tidak error saat pembuatan tabel, tetapi tidak memberlakukan (ignore) batasan integritasnya secara ketat seperti MySQL tradisional. 
+
+Mengapa Ini Terjadi? 
+- TiDB adalah database terdistribusi. Memberlakukan Foreign Key lintas node (TiKV) secara ketat akan memberikan dampak performa yang sangat besar pada operasi tulis. Karena itu, TiDB menyarankan pengecekan integritas data dilakukan di level aplikasi. 
 
 
 
