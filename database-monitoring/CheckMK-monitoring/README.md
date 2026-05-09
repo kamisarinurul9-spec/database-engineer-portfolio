@@ -20,4 +20,8 @@ Untuk memonitor server, kita perlu menginstal Checkmk Agent di target host terse
 - Accept all dan Activate Changes
 - monitor > all hosts
 <img width="1573" height="438" alt="Screenshot 2026-05-09 230745" src="https://github.com/user-attachments/assets/9a2c61d5-2a34-496d-8025-310e16ba7639" />  <br />
+- pilih salah satu untuk melihat kondisi server
+disini saya memilih host mysql slave
+<img width="1575" height="967" alt="Screenshot 2026-05-09 231011" src="https://github.com/user-attachments/assets/8a0d1c9e-679a-4b1e-88fe-61eef2d0c88c" /> <br />
+monitoring Checkmk sudah berjalan dengan baik untuk host mysql-slave. Sebagian besar service berstatus OK, namun ada satu peringatan (WARN) pada Check_MK Agent. lakukan Analisa di hosts yang lain.
 
