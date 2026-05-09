@@ -44,6 +44,9 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - Full & incremental backup
 - Restore testing
 
+## Monitoring Database
+- Percona Monitoring & Management (PMM)
+  
 ## Highlights
 - Designed distributed database systems
 - Handled high-volume transactional data
