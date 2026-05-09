@@ -95,7 +95,21 @@ Berikut adalah beberapa poin yang mengonfirmasi keberhasilan migrasi MySQL DB De
 
 <img width="424" height="206" alt="Screenshot 2026-05-05 233633" src="https://github.com/user-attachments/assets/f8a33e90-971a-43b1-9034-7a53707f2323" />  
 
+disini terlihat bahwa koneksi antara kedua sistem ini bekerja <br />
+Berikut poin penting dari hasil show processlist di MySQL:
+- Binlog Dump Aktif (ID 68079): User dm_tidb dari IP 10.204.20.150 (DM Worker) sedang dalam status "Binlog Dump". Pesan "Master has sent all binlog to slave; waiting for binlog to be updated" adalah konfirmasi bahwa semua perubahan data di MySQL sudah terkirim ke TiDB. Tidak ada antrean data yang tertahan.
+- Koneksi Pendukung (ID 68067-68069): Ada beberapa koneksi Sleep dari DM Worker. Ini normal karena DM memelihara beberapa session untuk memantau status heartbeat dan metadata secara berkala.
+- Sinkronisasi Jumlah Baris: Jumlah 80 pada deva_client di MySQL cocok sempurna dengan hasil 80 di TiDB yang Anda cek sebelumnya. <br />
 
+6. Pengujian sinkronisasi data <br />
+   write ke MySQL DeVA ke dalam tabel deva_switcher_prod.daily_va <br /> 
+`docker exec -it deva-mysql mysql -u root –p` <br /> 
+`USE deva_switcher_prod;` <br /> 
+`INSERT INTO daily_va ( customer_id, date, year, month, week, va, type, trx_id, va_amount, trx_amount, created_by 
+) VALUES (  'CUST-TEST-001', CURDATE(), '2026', '05', '19', '880123456789', '01', 'TRX-SINKRON-TIDB-001', 150000, 150000,  'admin_hanya_coba' ); ` <br /> 
+
+Cek record <br />  
+`SELECT * FROM deva_switcher_prod.daily_va WHERE customer_id = 'CUST-TEST-001';` <br /> 
 
 
 
