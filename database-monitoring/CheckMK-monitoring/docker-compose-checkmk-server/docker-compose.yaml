@@ -1,0 +1,15 @@
+services:
+  checkmk:
+    image: checkmk/check-mk-raw:2.2.0-latest
+    container_name: checkmk
+    restart: always
+    ports:
+      - "8081:5000" # Akses Web UI
+    volumes:
+      - checkmk_data:/omd/sites
+    environment:
+      - CMK_PASSWORD=admin_password_anda
+      - CMK_SITE_ID=monitoring
+
+volumes:
+  checkmk_data:
