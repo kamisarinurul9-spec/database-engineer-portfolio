@@ -13,4 +13,5 @@ TiDB Data Migration (DM) adalah alat manajemen migrasi data terintegrasi yang di
   `CREATE USER 'dm_tidb'@'%' IDENTIFIED BY 'Sup4rd1^17';` <br />
   `GRANT ALL PRIVILEGES ON . TO 'dm_tidb'@'%';` <br />
   `FLUSH PRIVILEGES;` <br />
+## Buat  TiDB DM di  (VM 10.204.20.150) 
    
