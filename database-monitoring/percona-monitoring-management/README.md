@@ -59,7 +59,15 @@ Analisis Ringkasan Query <br />
 - Total QPS (Queries Per Second): Saat ini berada di angka 1.09 QPS. Ini adalah traffic yang sangat rendah, menunjukkan database sedang dalam kondisi idle atau hanya menjalankan query background/monitoring. (dikarenakan database nya masih kosongan)
 - Query Time: Rata-rata waktu eksekusi berada di 713.68 μs (mikrodetik). Ini sangat cepat karena mayoritas query yang terlihat adalah query sistem. <br />
 
+<img width="1919" height="973" alt="Screenshot 2026-05-09 184657" src="https://github.com/user-attachments/assets/55eae8fb-1258-486a-8a43-82d3d4a4087f" />
 
+MySQL Replication Summary
+- IO Thread Running: Yes (Artinya, Slave berhasil terhubung ke Master dan sedang mendengarkan perubahan data (binlog) secara real-time.)
+- SQL Thread Running: Yes (Artinya, Slave berhasil mengeksekusi perintah-perintah yang dikirim dari Master ke database lokalnya.)
+- Read Only: Yes  (Artinya Node Slave dalam mode Read Only, mencegah adanya perubahan data yang tidak sengaja dilakukan langsung di Slave yang bisa merusak konsistensi replikasi) <br />
+Metrik Performa
+- MySQL Replication Lag: 0s (Garis datar pada grafik menunjukkan tidak ada keterlambatan. Data yang ditulis di Master (135) langsung muncul di Slave (136) dalam waktu kurang dari satu detik.)
+- Replication Error No: No Data (Artinya Tidak ada error yang terdeteksi. Jika replikasi putus karena masalah jaringan atau data duplikat, kode error akan muncul di sini)
 
 
 
