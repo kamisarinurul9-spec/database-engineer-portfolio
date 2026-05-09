@@ -19,5 +19,5 @@ Untuk memonitor server, kita perlu menginstal Checkmk Agent di target host terse
 - Checkmk akan melakukan service discovery secara otomatis.
 - Accept all dan Activate Changes
 - monitor > all hosts
-<img width="1566" height="497" alt="Screenshot 2026-05-09 230032" src="https://github.com/user-attachments/assets/0b6f1a90-4607-4ee8-bd41-6b1179745958" /> <br />
+<img width="1573" height="438" alt="Screenshot 2026-05-09 230745" src="https://github.com/user-attachments/assets/9a2c61d5-2a34-496d-8025-310e16ba7639" />  <br />
 
