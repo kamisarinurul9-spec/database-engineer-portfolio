@@ -52,6 +52,7 @@ sistem sudah berhasil membaca infrastruktur dengan baik. berikut analisa kondisi
 - Database Query/s (QPS): Tercatat di angka 16.08. Ini menunjukkan traffic database Anda sedang aktif namun masih sangat ringan untuk resource yang ada.
 - Database Connection: Ada 10 koneksi aktif. Angka ini normal untuk setup yang menggunakan Connection Pooler
 - Disk Space Total: Kapasitas 88.75 GiB terdeteksi, ini adalah total kapasitas disk dari node yang terpasang PMM Client.
+
 <img width="1911" height="957" alt="Screenshot 2026-05-09 183535" src="https://github.com/user-attachments/assets/01a64723-88f3-4cb7-bb33-3f74b5d371ae" />
 
 
