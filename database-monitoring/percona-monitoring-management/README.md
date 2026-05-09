@@ -2,7 +2,8 @@
 - run docker compose pmm-server <br />
 `docker compose up -d`
 ## Setup Client di Node Database
-- MySQL Master (10.204.20.135): <br />`docker run -d \
+- MySQL Master (10.204.20.135): <br />
+`docker run -d \
   --name pmm-client-master \
   --restart always \
   -e PMM_AGENT_SERVER_ADDRESS=10.204.20.137 \
