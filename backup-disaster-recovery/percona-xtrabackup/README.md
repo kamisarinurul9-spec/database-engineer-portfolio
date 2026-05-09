@@ -13,14 +13,9 @@ Skenario ini mendemonstrasikan perpindahan data dari server DR ke DRC:
 - Target Server (DRC)   10.205.30.134    Slave Database (Recovery Center)
 
 ## Implementation Steps
-1. Database Backup (Source DR)
    Menjalankan hot backup menggunakan container Docker untuk menjaga isolasi lingkungan:
-   docker run --rm --volumes-from MySQL-DeVA \
-  -v /opt/mysql-dr-sync/data/current_backup:/backup \
-  percona/percona-xtrabackup:2.4 \
-  xtrabackup --backup --target-dir=/backup --user=[user] --password=[pass]
 ```[cite: 2]
-
+### 1. Database Backup (Source DR)
 ### 2. Data Synchronization
 Mengirimkan hasil backup ke server DRC menggunakan `rsync` untuk efisiensi bandwidth:
 ```bash
