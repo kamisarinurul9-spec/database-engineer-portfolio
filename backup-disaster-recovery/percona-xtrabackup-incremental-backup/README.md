@@ -9,8 +9,8 @@ Arsitektur Automasi
 3. Server DRC: Standby menerima data. Proses prepare dan restore bisa dilakukan secara manual atau otomatis saat dibutuhkan
 supaya script bisa mengirim data secara otomatis, pastikan server DR bisa masuk ke DRC tanpa password:
 ## Di server DR (10.204.20.130)
-ssh-keygen -t rsa
-ssh-copy-id root@10.205.30.130
+- ssh-keygen -t rsa
+- ssh-copy-id root@10.205.30.130
 ### 2. Skrip Automasi Backup (`backup-automation.sh`)
 Buat file ini di `/opt/scripts/backup-automation.sh` pada server DR:
 
@@ -55,8 +55,6 @@ fi
 echo "Syncing to DRC..."
 rsync -avz --delete $BACKUP_DIR/ root@$REMOTE_DRC:$BACKUP_DIR/
 
----
-
 ### 3. Penjadwalan dengan Cron Job
 Jadwalkan script agar berjalan otomatis setiap malam (misal jam 01:00 pagi).
 # Edit crontab
@@ -77,4 +75,4 @@ Jika terjadi bencana di DR, Anda tinggal melakukan *prepare* secara berurutan di
 3.  **Finalize:** `xtrabackup --prepare --target-dir=/root/xtrabackup/full`
 
 
-Apakah ada bagian dari script bash tersebut yang ingin Anda sesuaikan dengan nama container atau path spesifik Anda?
+sesuaikan dengan nama container atau path spesifik
