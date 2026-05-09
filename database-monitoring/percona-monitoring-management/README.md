@@ -13,3 +13,4 @@
   -e PMM_AGENT_SETUP=1 \
   -e PMM_AGENT_CONFIG_FILE=/usr/local/percona/pmm2/config/pmm-agent.yaml \
   percona/pmm-client:2`
+- MySQL Slave (10.204.20.136) <br />
