@@ -29,7 +29,6 @@ CHANGE MASTER TO
   MASTER_LOG_FILE='[file_from_info]',
   MASTER_LOG_POS=[pos_from_info];
 START SLAVE;
-```[cite: 2]
 
 ## Tools
 *   **mysqldump / xtrabackup**[cite: 2]
