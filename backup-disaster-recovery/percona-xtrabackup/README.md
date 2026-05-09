@@ -34,12 +34,11 @@ mv /root/mysql-drc-prod /var/lib/docker/volumes/
 chown -R 1001:1001 /var/lib/docker/volumes/mysql-drc-prod
 - Start container MySQL DRC
 docker start MySQL-DRC-Prod
-
-```sql
+- jalankan perintah sql di DRC 
 CHANGE MASTER TO
   MASTER_HOST='10.204.20.134',
   MASTER_LOG_FILE='[file_from_info]',
   MASTER_LOG_POS=[pos_from_info];
 START SLAVE;
+- Check status Replikasi
 SHOW SLAVE STATUS\G
-**Architecture Diagram** sederhana atau tabel navigasi agar pengunjung bisa langsung melihat keahlian Anda di berbagai ekosistem database sekaligus.
