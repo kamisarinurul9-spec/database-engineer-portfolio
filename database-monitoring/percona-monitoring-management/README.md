@@ -42,3 +42,5 @@
   --port=3306 \
   --query-source=perfschema \
   MySQL-Slave-Node`
+## Keamanan & Verifikasi
+1. Dashboard PMM: Buka [http://10.204.20.137], login pertama kali dengan admin / admin. Anda akan diminta mengganti password.
