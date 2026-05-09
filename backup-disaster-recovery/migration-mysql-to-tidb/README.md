@@ -33,7 +33,8 @@ Run untuk mendaftarkan source <br />
 `docker exec -it dm-master /dmctl --master-addr 10.204.20.150:8261 operate-source create source.yaml`
 
 <img width="1182" height="315" alt="Screenshot 2026-05-05 220736" src="https://github.com/user-attachments/assets/ed74741e-ea65-440b-9c4e-5fed013820bd" />
-source berhasil dibuat!, Output tersebut menunjukkan bahwa TiDB Data Manager (DM) sudah berhasil mendaftarkan sumber data MySQL Anda dengan ID mysql-production dan sudah diikat (bound) ke worker1 <br />
+source berhasil dibuat!, Output tersebut menunjukkan bahwa TiDB Data Manager (DM) sudah berhasil mendaftarkan sumber data MySQL Anda dengan ID mysql-production dan sudah diikat (bound) ke worker1. <br />
+
 2. Buat Task Migrasi (Full + Incremental) Buat file bernama task.yaml. File ini menentukan apa yang akan dipindah dan ke mana tujuannya. <br />
 <img width="628" height="800" alt="Screenshot 2026-05-05 222001" src="https://github.com/user-attachments/assets/0e43c2ee-de92-45ad-baa7-d001223d92b6" />
 
