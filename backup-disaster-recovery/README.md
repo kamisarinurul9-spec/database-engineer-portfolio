@@ -8,9 +8,12 @@ This project demonstrates backup and disaster recovery strategies for production
 - Incremental backup
 - Restore testing
 - Migration
+- Optimization Query
+- Tuning
 
 ## Tools
 - mysqldump / xtrabackup
+- percona toolkit
 - cron jobs
 - mongodump
 - TiDB Data Migration / Change Data Capture (CDC)
