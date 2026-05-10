@@ -15,7 +15,7 @@ This project demonstrates backup and disaster recovery strategies for production
 - mysqldump / xtrabackup
 - percona toolkit
 - cron jobs
-- mongodump
+- mongodump / Percona Backup for Mongo (PBM)
 - TiDB Data Migration / Change Data Capture (CDC)
 
 ## Results
