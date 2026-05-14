@@ -35,3 +35,14 @@ Sistem ini terbagi menjadi beberapa peran spesifik (Nodes) untuk memastikan akur
 `docker build -t ai-dba-agent .`
 - Run Container
 `docker run -it --env-file .env ai-dba-agent`
+
+# Uji Coba
+<img width="907" height="410" alt="Screenshot 2026-05-14 232932" src="https://github.com/user-attachments/assets/936bed06-d847-425c-bf4e-1d06daa46123" />
+<img width="836" height="430" alt="Screenshot 2026-05-14 233039" src="https://github.com/user-attachments/assets/aa27fa24-eba3-483e-b31b-503808892314" />
+<img width="1887" height="772" alt="Screenshot 2026-05-14 233220" src="https://github.com/user-attachments/assets/e2c2a1ed-567c-478b-9aa8-e648f8f76f99" />
+<img width="890" height="237" alt="Screenshot 2026-05-14 233345" src="https://github.com/user-attachments/assets/7e691c8d-75b8-4f69-ac89-b01234efe58e" />
+
+
+
+
+
