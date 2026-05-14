@@ -44,7 +44,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - Full & incremental backup
 - Restore testing
 
-### 7. Monitoring Database
+### 7. Monitoring Database & Observability
 - Percona Monitoring & Management (PMM)
 - CheckMK
 - AI Agent
