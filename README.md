@@ -8,7 +8,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 - MongoDB (Sharding)
 - TiDB (Distributed SQL)
 - PostgreSQL (Cluster, HA)
-- Docker, Linux
+- Docker, Linux, Python, Bash
 
 ## Projects
 
