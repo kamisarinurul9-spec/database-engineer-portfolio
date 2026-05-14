@@ -47,6 +47,7 @@ Senior Database Engineer with expertise in distributed database systems, high av
 ### 7. Monitoring Database
 - Percona Monitoring & Management (PMM)
 - CheckMK
+- AI Agent
   
 ## Highlights
 - Designed distributed database systems
